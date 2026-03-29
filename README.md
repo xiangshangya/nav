@@ -1,0 +1,2 @@
+在docker-compose.yml的AUTH_SECRET=后面自定义密钥
+在.env的AUTH_SECRET后面自定义密钥，两次密钥要一样
