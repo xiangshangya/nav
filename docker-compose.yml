@@ -1,0 +1,28 @@
+services:
+  nav-app:
+    build: .
+    container_name: xiangshang-nav
+    restart: always
+    ports:
+      - "3511:3511"
+    environment:
+      # 使用单引号包裹，防止 $ 符号被解析为变量
+      - 'AUTH_SECRET='
+      - 'AUTH_TRUST_HOST=true'
+      - 'DATABASE_URL=file:/app/prisma/dev.db'
+    volumes:
+      - ./prisma:/app/prisma
+# services:
+#   nav-app:
+#     image: nav-app:latest          # 指定使用本地镜像
+#     # build: .                     # 离线环境不需要构建，可以注释掉
+#     container_name: xiangshang-nav
+#     restart: always
+#     ports:
+#       - "3511:3511"
+#     environment:
+#       - 'AUTH_SECRET='
+#       - 'AUTH_TRUST_HOST=true'
+#       - 'DATABASE_URL=file:/app/prisma/dev.db'
+#     volumes:
+#       - ./prisma:/app/prisma
